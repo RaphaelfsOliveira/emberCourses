@@ -2,23 +2,10 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   title: 'About Us - Contact Us',
-  body: ['address', 'street', 'email', 'other things'],
+  // body: ['address', 'street', 'email', 'other things'],
   isShowBody: true,
-  item: null,
-  comments: [
-    {
-      name: 'Mike Smith',
-      comment: 'Thanks for the great post!'
-    },
-    {
-      name: 'John Smith',
-      comment: 'Thanks for the great post!'
-    },
-    {
-      name: 'Jack Sulivan',
-      comment: 'Thanks for the great post!'
-    }
-  ],
+  choiceComment: null,
+  comments: null,
 
   actions: {
     sayHello(item) {
@@ -28,11 +15,17 @@ export default Controller.extend({
     toggleBody() {
       this.toggleProperty('isShowBody');
     },
-    choiceOption(id) {
-      this.set('item', id)
+    choiceOption(option) {
+      this.set('choiceComment', option)
     },
     showOption() {
-      alert(this.get('item'));
+      const comment = this.get('choiceComment');
+      if (comment) {
+        alert(`Name: ${comment.name}, Comment: ${comment.comment}`);
+      } else {
+        alert('Escolha um comentário');
+      }
+
     },
     viewPost() {
       alert(`${this.get('name')} ${this.get('comment')}`);
