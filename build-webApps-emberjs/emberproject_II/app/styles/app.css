@@ -44,3 +44,8 @@ li a:hover {
   padding: 0px;
   box-shadow: 0px 2px 13px -1px rgba(0,0,0,0.64);
 }
+
+#navbarsExampleDefault {
+  margin-left: 10px;
+  margin-right: 10px;  
+}

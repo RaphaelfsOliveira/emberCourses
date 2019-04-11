@@ -1,1 +1,47 @@
-<h1>About Us</h1>
+<h1 {{action 'toggleBody'}}>{{title}}</h1>
+
+{{#if isShowBody}}
+<p><button type="button" name="button" {{action 'toggleBody'}}>Hide Body</button></p>
+
+<ul>
+  {{#each body as |item|}}
+    <li>{{item}}</li><br>
+  {{/each}}
+</ul>
+
+<h3>{{test}}</h3>
+
+<br><br>
+
+<h2>Comments</h2>
+{{#each comments as |comment|}}
+  <p><strong>{{comment.name}}</strong>: {{comment.comment}}</p>
+{{/each}}
+
+<button type="button" name="button" {{action 'showOption'}}>Show Option</button>
+
+<button type="button" name="button" {{action 'choiceOption' 'UM'}}>Option 1</button>
+<button type="button" name="button" {{action 'choiceOption' 'DOIS'}}>Option 2</button>
+<button type="button" name="button" {{action 'choiceOption' 'TRES'}}>Option 3</button>
+
+<button type="button" name="button" {{action 'sayHello' title}}>Ola</button>
+
+<br><br><br>
+<h4>Add Comment:</h4>
+<form {{action 'submitAction' on='submit'}}>
+  <p>Name: {{input value=name}}</p>
+  <p>Comment: {{textarea value=comment}}</p>
+  <button type="submit">Submit</button>
+</form>
+
+<br><br>
+<button type="button" name="button" {{action 'viewPost'}}>Ver Post</button>
+
+
+
+
+
+{{else}}
+<p><b>the Body is Hide</b></p>
+<button type="button" name="button" {{action 'toggleBody'}}>Show Body</button>
+{{/if}}
