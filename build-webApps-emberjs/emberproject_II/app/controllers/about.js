@@ -22,6 +22,8 @@ export default Controller.extend({
       const comment = this.get('choiceComment');
       if (comment) {
         alert(`Name: ${comment.name}, Comment: ${comment.comment}`);
+        // this.transitionToRoute('edit', comment);
+        this.transitionToRoute('edit', comment.id);
       } else {
         alert('Escolha um comentário');
       }

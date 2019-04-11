@@ -1,9 +1,11 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+  model(params, model) {
+    console.log('############# edit route', params);
+    console.log(model);
 
-  model() {
-    return [
+    const data = [
       {
         id: 0,
         name: 'Mike Andreas',
@@ -20,8 +22,10 @@ export default Route.extend({
         comment: 'Thanks for the great post!'
       }
     ]
+    return data[parseInt(params.edit_id)];
   },
+
   setupController(controller, model) {
-    controller.set('comments', model);
-  }
+    controller.set('selectedOption', model);
+  },
 });
