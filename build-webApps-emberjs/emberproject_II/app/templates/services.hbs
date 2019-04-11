@@ -1,1 +1,7 @@
 <h1>Services</h1>
+
+<ul>
+  {{#each model as |item index|}}
+    <li>{{index}} - {{item}}</li><br>
+  {{/each}}
+</ul>
